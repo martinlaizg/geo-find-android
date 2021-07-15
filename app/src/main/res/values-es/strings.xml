@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Geo Find</string>
+	<string name="title_home">Inicio</string>
+	<string name="title_profile">Perfil</string>
+	<string name="title_tour_list">Tours</string>
+	<string name="description_profile_image">Imagen del usuario</string>
+	<string name="description_tour_image">Imagen del tour</string>
+</resources>
