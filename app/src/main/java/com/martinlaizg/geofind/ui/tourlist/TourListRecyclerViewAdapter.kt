@@ -9,15 +9,15 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.GlideException
 import com.martinlaizg.geofind.databinding.FragmentTourlistItemBinding
 
-class TourListAdapter(private val dataSet: Array<TourView>) :
-	RecyclerView.Adapter<TourListAdapter.ViewHolder>() {
+class TourListRecyclerViewAdapter(private val dataSet: List<TourView>) :
+	RecyclerView.Adapter<TourListRecyclerViewAdapter.ViewHolder>() {
 
-	private val _tag: String = TourListAdapter::class.java.simpleName
+	private val _tag: String = TourListRecyclerViewAdapter::class.java.simpleName
 
 	class ViewHolder(private val binding: FragmentTourlistItemBinding) :
 		RecyclerView.ViewHolder(binding.root) {
 		private val _tag: String =
-			TourListAdapter::class.java.simpleName + ViewHolder::class.java.simpleName
+			TourListRecyclerViewAdapter::class.java.simpleName + ViewHolder::class.java.simpleName
 
 		fun bind(tourView: TourView) {
 			binding.textTourTitle.text = tourView.title
@@ -36,7 +36,8 @@ class TourListAdapter(private val dataSet: Array<TourView>) :
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 		Log.v(_tag, "Create ViewHolder")
 		return ViewHolder(
-			FragmentTourlistItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+			FragmentTourlistItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+		)
 	}
 
 	override fun onBindViewHolder(holder: ViewHolder, position: Int) {

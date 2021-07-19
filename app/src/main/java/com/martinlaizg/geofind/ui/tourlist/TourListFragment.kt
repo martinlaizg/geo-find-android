@@ -15,19 +15,19 @@ class TourListFragment : Fragment() {
 	private lateinit var tourListViewModel: TourListViewModel
 	private var _binding: FragmentTourlistBinding? = null
 
-	// This property is only valid between onCreateView and
-	// onDestroyView.
 	private val binding get() = _binding!!
 
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-							  savedInstanceState: Bundle?): View {
+	override fun onCreateView(
+		inflater: LayoutInflater, container: ViewGroup?,
+		savedInstanceState: Bundle?
+	): View {
 		tourListViewModel = ViewModelProvider(this).get(TourListViewModel::class.java)
 
 		_binding = FragmentTourlistBinding.inflate(inflater, container, false)
 		val root: View = binding.root
 		tourListViewModel.data.observe(viewLifecycleOwner, {
 			Log.v(_tag, "Data has changed")
-			binding.viewTourList.adapter = TourListAdapter(it)
+			binding.viewTourList.adapter = TourListRecyclerViewAdapter(it)
 		})
 		return root
 	}
