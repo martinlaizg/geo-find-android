@@ -6,4 +6,9 @@
 	<string name="title_tour_list">Tours</string>
 	<string name="description_profile_image">Imagen del usuario</string>
 	<string name="description_tour_image">Imagen del tour</string>
+	<string name="title_create_tour">Crear tour</string>
+	<string name="input_tour_title">Titulo</string>
+	<string name="input_tour_description">Descripción</string>
+	<string name="create">Crear</string>
+	<string name="title_tour">Tour</string>
 </resources>

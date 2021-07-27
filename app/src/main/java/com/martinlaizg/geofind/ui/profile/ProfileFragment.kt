@@ -11,15 +11,13 @@ import com.martinlaizg.geofind.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 
-	private lateinit var profileViewModel: ProfileViewModel
 	private var _binding: FragmentProfileBinding? = null
-
-	// This property is only valid between onCreateView and
-	// onDestroyView.
 	private val binding get() = _binding!!
 
+	private lateinit var profileViewModel: ProfileViewModel
+
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-							  savedInstanceState: Bundle?): View {
+		savedInstanceState: Bundle?): View {
 		profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 		_binding = FragmentProfileBinding.inflate(inflater, container, false)
 		val root: View = binding.root

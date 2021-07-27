@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+	<style name="GeoFind" parent="Theme.MaterialComponents.Light.NoActionBar" />
+
+	<style name="AppTheme.TextInputLayout.Outlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" />
+
+	<style name="AppTheme.Button" parent="Widget.MaterialComponents.Button" />
+
+	<style name="AppTheme.Tour.Heading" parent="Widget.MaterialComponents.TextView">
+		<item name="android:textSize">10pt</item>
+	</style>
+
+	<style name="AppTheme.Tour.Body" parent="Widget.MaterialComponents.TextView">
+		<item name="android:textSize">7pt</item>
+	</style>
+
 </resources>
