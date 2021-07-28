@@ -3,10 +3,12 @@ package com.martinlaizg.geofind.ui.profile
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.martinlaizg.geofind.ui.view.ProfileView
 
 class ProfileViewModel : ViewModel() {
 
-	private val profileProvider = ProfileProvider()
+	private val provider = ProfileProvider()
+
 	private val _text = MutableLiveData<ProfileView>()
 
 	val text: LiveData<ProfileView> = _text
@@ -16,8 +18,8 @@ class ProfileViewModel : ViewModel() {
 		}
 
 	private fun loadProfile() {
-		_text.apply {
-			value = profileProvider.loadProfile()
+		provider.loadProfile {
+			_text.postValue(it)
 		}
 	}
 }

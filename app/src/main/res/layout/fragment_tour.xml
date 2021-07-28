@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingStart="16dp"
+	android:paddingTop="16dp"
+	android:paddingEnd="16dp"
+	android:paddingBottom="16dp">
+
+	<TextView
+		android:id="@+id/text_tour_name"
+		style="@style/AppTheme.Tour.Heading"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="@sample/tours.json/tours/title" />
+
+	<TextView
+		android:id="@+id/text_tour_description"
+		style="@style/AppTheme.Tour.Body"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="16dp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/text_tour_name"
+		tools:text="@sample/tours.json/tours/description" />
+
+	<ImageView
+		android:id="@+id/image_tour"
+		android:layout_width="match_parent"
+		android:layout_height="200dp"
+		android:layout_marginTop="16dp"
+		android:scaleType="centerCrop"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/text_tour_description"
+		tools:srcCompat="@tools:sample/backgrounds/scenic" />
+</androidx.constraintlayout.widget.ConstraintLayout>

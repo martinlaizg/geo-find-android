@@ -1,35 +1,41 @@
 package com.martinlaizg.geofind.ui.tourlist
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.martinlaizg.geofind.databinding.FragmentTourlistBinding
 
 class TourListFragment : Fragment() {
 
-	private val _tag: String = TourListFragment::class.java.simpleName
-	private lateinit var tourListViewModel: TourListViewModel
 	private var _binding: FragmentTourlistBinding? = null
-
-	// This property is only valid between onCreateView and
-	// onDestroyView.
 	private val binding get() = _binding!!
 
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-							  savedInstanceState: Bundle?): View {
-		tourListViewModel = ViewModelProvider(this).get(TourListViewModel::class.java)
+	private var viewModel = TourListViewModel()
+	private var adapter = TourListRecyclerViewAdapter()
 
+	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+		savedInstanceState: Bundle?): View {
 		_binding = FragmentTourlistBinding.inflate(inflater, container, false)
-		val root: View = binding.root
-		tourListViewModel.data.observe(viewLifecycleOwner, {
-			Log.v(_tag, "Data has changed")
-			binding.viewTourList.adapter = TourListAdapter(it)
+
+		viewModel.err.observe(viewLifecycleOwner, {
+			Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
 		})
-		return root
+		binding.viewTourList.adapter = adapter
+		viewModel.data.observe(viewLifecycleOwner, {
+			adapter.dataSet = it
+		})
+
+		return binding.root
+	}
+
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
+		binding.buttonAddTour.setOnClickListener(Navigation.createNavigateOnClickListener(
+			TourListFragmentDirections.actionFromTourListToTourForm()))
 	}
 
 	override fun onDestroyView() {
