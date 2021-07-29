@@ -11,6 +11,9 @@ import androidx.navigation.Navigation
 import com.martinlaizg.geofind.databinding.FragmentTourFormBinding
 import com.martinlaizg.geofind.ui.view.TourView
 
+/**
+ *
+ */
 class TourFormFragment : Fragment() {
 
 	private var _binding: FragmentTourFormBinding? = null
@@ -18,12 +21,18 @@ class TourFormFragment : Fragment() {
 
 	private var viewModel = TourFormViewModel()
 
+	/**
+	 *
+	 */
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?): View {
 		_binding = FragmentTourFormBinding.inflate(inflater, container, false)
 		return binding.root
 	}
 
+	/**
+	 *
+	 */
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		viewModel.createdTour.observe(viewLifecycleOwner, {
@@ -70,9 +79,11 @@ class TourFormFragment : Fragment() {
 		return TourView("", title, description)
 	}
 
+	/**
+	 *
+	 */
 	override fun onDestroyView() {
 		super.onDestroyView()
 		_binding = null
 	}
-
 }

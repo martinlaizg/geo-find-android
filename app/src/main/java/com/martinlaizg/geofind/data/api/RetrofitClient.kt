@@ -4,11 +4,17 @@ import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ *
+ */
 class RetrofitClient {
 
 	private val _dateFormat: String = "yyyy-MM-dd HH:mm:ss"
 	private val _baseUrl: String = "http://10.0.2.2:3000"
 
+	/**
+	 *
+	 */
 	val instance: Retrofit = getRetrofit()
 
 	private fun getRetrofit(): Retrofit {

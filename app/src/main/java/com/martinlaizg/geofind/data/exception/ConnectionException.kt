@@ -1,3 +1,11 @@
 package com.martinlaizg.geofind.data.exception
 
-class ConnectionException(message: String?) : Throwable(message)
+/**
+ * TODO
+ *
+ * @constructor
+ * TODO
+ *
+ * @param message
+ */
+class ConnectionException(message: String = "Connection error") : Throwable(message)

@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.martinlaizg.geofind.databinding.FragmentProfileBinding
 
+/**
+ *
+ */
 class ProfileFragment : Fragment() {
 
 	private var _binding: FragmentProfileBinding? = null
@@ -16,6 +19,9 @@ class ProfileFragment : Fragment() {
 
 	private lateinit var profileViewModel: ProfileViewModel
 
+	/**
+	 *
+	 */
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?): View {
 		profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
@@ -29,6 +35,9 @@ class ProfileFragment : Fragment() {
 		return root
 	}
 
+	/**
+	 *
+	 */
 	override fun onDestroyView() {
 		super.onDestroyView()
 		_binding = null
