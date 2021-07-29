@@ -10,6 +10,9 @@ import androidx.navigation.fragment.navArgs
 import com.martinlaizg.geofind.databinding.FragmentTourBinding
 import com.martinlaizg.geofind.ui.view.TourView
 
+/**
+ *
+ */
 class TourFragment : Fragment() {
 
 	private val args: TourFragmentArgs by navArgs()
@@ -19,6 +22,9 @@ class TourFragment : Fragment() {
 
 	private val viewModel by lazy { TourViewModel(args.id) }
 
+	/**
+	 *
+	 */
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?): View {
 		_binding = FragmentTourBinding.inflate(inflater, container, false)
@@ -36,6 +42,9 @@ class TourFragment : Fragment() {
 		binding.textTourDescription.text = view.description
 	}
 
+	/**
+	 *
+	 */
 	override fun onDestroyView() {
 		super.onDestroyView()
 		_binding = null

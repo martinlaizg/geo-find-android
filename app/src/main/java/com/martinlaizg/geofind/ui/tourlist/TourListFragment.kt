@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.martinlaizg.geofind.databinding.FragmentTourlistBinding
 
+/**
+ *
+ */
 class TourListFragment : Fragment() {
 
 	private var _binding: FragmentTourlistBinding? = null
@@ -17,6 +20,9 @@ class TourListFragment : Fragment() {
 	private var viewModel = TourListViewModel()
 	private var adapter = TourListRecyclerViewAdapter()
 
+	/**
+	 *
+	 */
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?): View {
 		_binding = FragmentTourlistBinding.inflate(inflater, container, false)
@@ -32,12 +38,18 @@ class TourListFragment : Fragment() {
 		return binding.root
 	}
 
+	/**
+	 *
+	 */
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		binding.buttonAddTour.setOnClickListener(Navigation.createNavigateOnClickListener(
 			TourListFragmentDirections.actionFromTourListToTourForm()))
 	}
 
+	/**
+	 *
+	 */
 	override fun onDestroyView() {
 		super.onDestroyView()
 		_binding = null

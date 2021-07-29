@@ -7,11 +7,18 @@ import com.martinlaizg.geofind.data.adapter.TourAdapter
 import com.martinlaizg.geofind.data.provider.TourProvider
 import com.martinlaizg.geofind.ui.view.TourView
 
+/**
+ *
+ */
 class TourViewModel(private val id: String) : ViewModel() {
 
 	private val provider = TourProvider()
 
 	private val _data = MutableLiveData<TourView>()
+
+	/**
+	 *
+	 */
 	val data: LiveData<TourView> = _data
 		get() {
 			provider.getTour(id, onSuccess = {
@@ -23,6 +30,9 @@ class TourViewModel(private val id: String) : ViewModel() {
 		}
 
 	private val _err = MutableLiveData<String>()
-	val err: LiveData<String> = _err
 
+	/**
+	 *
+	 */
+	val err: LiveData<String> = _err
 }

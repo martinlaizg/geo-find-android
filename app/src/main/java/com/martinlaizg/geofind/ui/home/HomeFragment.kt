@@ -8,11 +8,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.martinlaizg.geofind.databinding.FragmentHomeBinding
 
+/**
+ * TODO
+ *
+ */
 class HomeFragment : Fragment() {
 
 	private var _binding: FragmentHomeBinding? = null
 	private val binding get() = _binding!!
 
+	/**
+	 * TODO
+	 *
+	 * @param inflater
+	 * @param container
+	 * @param savedInstanceState
+	 * @return
+	 */
 	@SuppressLint("SetTextI18n")
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?): View {
@@ -21,6 +33,10 @@ class HomeFragment : Fragment() {
 		return binding.root
 	}
 
+	/**
+	 * TODO
+	 *
+	 */
 	override fun onDestroyView() {
 		super.onDestroyView()
 		_binding = null

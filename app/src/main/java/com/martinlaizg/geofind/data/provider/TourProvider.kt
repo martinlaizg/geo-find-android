@@ -4,10 +4,16 @@ import com.martinlaizg.geofind.data.api.bean.TourApiBean
 import com.martinlaizg.geofind.data.exception.ConnectionException
 import com.martinlaizg.geofind.data.service.TourService
 
+/**
+ *
+ */
 class TourProvider {
 
 	private val tourService: TourService = TourService()
 
+	/**
+	 *
+	 */
 	fun getTourList(onSuccess: (List<TourApiBean>) -> Unit, onError: (String) -> Unit) {
 		Thread {
 			try {
@@ -18,6 +24,9 @@ class TourProvider {
 		}.start()
 	}
 
+	/**
+	 *
+	 */
 	fun create(beanToCreate: TourApiBean, onSuccess: (TourApiBean) -> Unit,
 		onError: (String) -> Unit) {
 		Thread {
@@ -29,6 +38,9 @@ class TourProvider {
 		}.start()
 	}
 
+	/**
+	 *
+	 */
 	fun getTour(id: String, onSuccess: (TourApiBean) -> Unit, onError: (String) -> Unit) {
 		Thread {
 			try {

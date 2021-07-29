@@ -10,4 +10,5 @@
 	<string name="input_tour_description">Description</string>
 	<string name="create">Create</string>
 	<string name="title_tour">Tour</string>
+	<string name="add_tour_button">Add tour button</string>
 </resources>
