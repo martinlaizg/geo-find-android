@@ -19,6 +19,8 @@ class TourService {
 	private val api: TourApiInterface =
 		RetrofitClient().instance.create(TourApiInterface::class.java)
 
+	private val _responseUnsuccessful = "Response unsuccessful"
+
 	/**
 	 * TODO
 	 *
@@ -34,7 +36,7 @@ class TourService {
 			Log.e(_tag, _connectionError, e)
 			throw ConnectionException()
 		}
-		throw ApiException("Response unsuccessful")
+		throw ApiException(_responseUnsuccessful)
 	}
 
 	/**
@@ -53,7 +55,7 @@ class TourService {
 			Log.e(_tag, _connectionError, e)
 			throw ConnectionException()
 		}
-		throw ApiException("Response unsuccessful")
+		throw ApiException(_responseUnsuccessful)
 	}
 
 	/**
@@ -72,6 +74,6 @@ class TourService {
 			Log.e(_tag, _connectionError, e)
 			throw ConnectionException()
 		}
-		throw ApiException("Response unsuccessful")
+		throw ApiException(_responseUnsuccessful)
 	}
 }

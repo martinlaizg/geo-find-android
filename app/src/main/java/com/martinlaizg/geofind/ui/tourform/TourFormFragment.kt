@@ -70,7 +70,7 @@ class TourFormFragment : Fragment() {
 		}
 		val description = binding.inputTextTourDescription.text.toString()
 		if (description.isEmpty()) {
-			binding.layoutInputTextTourDescription.error = "Decription is required"
+			binding.layoutInputTextTourDescription.error = "Description is required"
 			valid = false
 		}
 		if (!valid) {

@@ -1,5 +1,6 @@
 package com.martinlaizg.geofind.data.provider
 
+import android.util.Log
 import com.martinlaizg.geofind.data.api.bean.TourApiBean
 import com.martinlaizg.geofind.data.exception.ConnectionException
 import com.martinlaizg.geofind.data.service.TourService
@@ -9,7 +10,10 @@ import com.martinlaizg.geofind.data.service.TourService
  */
 class TourProvider {
 
+	private val _tag = "TourProvider"
 	private val tourService: TourService = TourService()
+
+	private val _connectionError = "Connection error"
 
 	/**
 	 *
@@ -19,7 +23,8 @@ class TourProvider {
 			try {
 				onSuccess(tourService.getAllTours())
 			} catch (e: ConnectionException) {
-				onError("Connection error")
+				Log.e(_tag, e.message, e)
+				onError(_connectionError)
 			}
 		}.start()
 	}
@@ -33,7 +38,8 @@ class TourProvider {
 			try {
 				onSuccess(tourService.create(beanToCreate))
 			} catch (e: ConnectionException) {
-				onError("Connection error")
+				Log.e(_tag, e.message, e)
+				onError(_connectionError)
 			}
 		}.start()
 	}
@@ -46,7 +52,8 @@ class TourProvider {
 			try {
 				onSuccess(tourService.getTour(id))
 			} catch (e: ConnectionException) {
-				onError("Connection error")
+				Log.e(_tag, e.message, e)
+				onError(_connectionError)
 			}
 		}.start()
 	}
