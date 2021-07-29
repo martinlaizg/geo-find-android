@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/main_nav"
+	app:startDestination="@+id/navigation_home">
+
+	<fragment
+		android:id="@+id/navigation_home"
+		android:name="com.martinlaizg.geofind.ui.home.HomeFragment"
+		android:label="@string/title_home"
+		tools:layout="@layout/fragment_home" />
+
+	<fragment
+		android:id="@+id/navigation_tour_list"
+		android:name="com.martinlaizg.geofind.ui.tourlist.TourListFragment"
+		android:label="@string/title_tour_list"
+		tools:layout="@layout/fragment_tourlist">
+		<action
+			android:id="@+id/action_from_tour_list_to_tour_form"
+			app:destination="@id/navigation_tour_form" />
+		<action
+			android:id="@+id/action_from_tour_list_to_tour"
+			app:destination="@id/navigation_tour" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/navigation_profile"
+		android:name="com.martinlaizg.geofind.ui.profile.ProfileFragment"
+		android:label="@string/title_profile"
+		tools:layout="@layout/fragment_profile" />
+	<fragment
+		android:id="@+id/navigation_tour_form"
+		android:name="com.martinlaizg.geofind.ui.tourform.TourFormFragment"
+		android:label="@string/title_create_tour"
+		tools:layout="@layout/fragment_tour_form">
+		<action
+			android:id="@+id/action_from_tour_form_to_tour"
+			app:destination="@id/navigation_tour" />
+	</fragment>
+	<fragment
+		android:id="@+id/navigation_tour"
+		android:name="com.martinlaizg.geofind.ui.tour.TourFragment"
+		android:label="TourFragment"
+		tools:layout="@layout/fragment_tour">
+		<argument
+			android:name="id"
+			app:argType="string"
+			app:nullable="false" />
+	</fragment>
+</navigation>
