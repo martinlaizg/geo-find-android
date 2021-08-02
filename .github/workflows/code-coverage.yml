@@ -24,8 +24,8 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Build with Gradle
-        run: ./gradlew jacocoTestReport
+      - name: Test and coverage
+        run: ./gradlew jacocoTestReport --stacktrace
 
       - name: Upload Test Report to CodeCov
         uses: codecov/codecov-action@v1
