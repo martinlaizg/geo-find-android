@@ -18,7 +18,7 @@ class TourListFragment : Fragment() {
 	private val binding get() = _binding!!
 
 	private var viewModel = TourListViewModel()
-	private var adapter = TourListRecyclerViewAdapter()
+	private lateinit var adapter: TourListRecyclerViewAdapter
 
 	/**
 	 *
@@ -30,6 +30,7 @@ class TourListFragment : Fragment() {
 		viewModel.err.observe(viewLifecycleOwner, {
 			Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
 		})
+		adapter = TourListRecyclerViewAdapter()
 		binding.viewTourList.adapter = adapter
 		viewModel.data.observe(viewLifecycleOwner, {
 			adapter.dataSet = it

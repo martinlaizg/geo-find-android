@@ -39,8 +39,9 @@ class TourListRecyclerViewAdapter : RecyclerView.Adapter<TourListRecyclerViewAda
 		 */
 		fun bind(tourView: TourView) {
 			binding.cardTour.setOnClickListener {
-				Navigation.findNavController(it)
-					.navigate(TourListFragmentDirections.actionFromTourListToTour(tourView.id))
+				var findNavController = Navigation.findNavController(it)
+				findNavController.navigate(
+					TourListFragmentDirections.actionFromTourListToTour(tourView.id))
 			}
 			binding.textTourTitle.text = tourView.name
 			if (tourView.image?.isBlank() == true) {

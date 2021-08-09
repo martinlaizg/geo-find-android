@@ -57,4 +57,19 @@ class TourProvider {
 			}
 		}.start()
 	}
+
+	/**
+	 * Remove a tour by the id
+	 *
+	 * @param id
+	 */
+	fun removeTour(id: String) {
+		Thread {
+			try {
+				tourService.removeTour(id)
+			} catch (e: ConnectionException) {
+				Log.e(_tag, e.message, e)
+			}
+		}.start()
+	}
 }

@@ -11,7 +11,6 @@ import com.martinlaizg.geofind.ui.view.TourView
  *
  */
 class TourViewModel(private val id: String) : ViewModel() {
-
 	private val provider = TourProvider()
 
 	private val _data = MutableLiveData<TourView>()
@@ -35,4 +34,15 @@ class TourViewModel(private val id: String) : ViewModel() {
 	 *
 	 */
 	val err: LiveData<String> = _err
+
+	/**
+	 * Remove the tour
+	 */
+	fun removeTour() {
+		if (data.value == null) {
+			_err.postValue("Tour is not loaded")
+			return
+		}
+		provider.removeTour(id)
+	}
 }

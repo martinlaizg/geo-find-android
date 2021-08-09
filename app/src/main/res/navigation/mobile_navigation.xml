@@ -21,7 +21,8 @@
 			app:destination="@id/navigation_tour_form" />
 		<action
 			android:id="@+id/action_from_tour_list_to_tour"
-			app:destination="@id/navigation_tour" />
+			app:destination="@id/navigation_tour"
+			app:popUpTo="@id/navigation_tour_list" />
 	</fragment>
 
 	<fragment
@@ -36,7 +37,8 @@
 		tools:layout="@layout/fragment_tour_form">
 		<action
 			android:id="@+id/action_from_tour_form_to_tour"
-			app:destination="@id/navigation_tour" />
+			app:destination="@id/navigation_tour"
+			app:popUpTo="@id/navigation_tour_list" />
 	</fragment>
 	<fragment
 		android:id="@+id/navigation_tour"

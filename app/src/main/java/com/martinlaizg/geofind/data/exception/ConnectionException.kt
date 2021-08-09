@@ -8,4 +8,4 @@ package com.martinlaizg.geofind.data.exception
  *
  * @param message
  */
-class ConnectionException(message: String = "Connection error") : Throwable(message)
+class ConnectionException(message: String = "Connection error") : ApiException(message)

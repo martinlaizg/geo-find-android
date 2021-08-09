@@ -8,4 +8,4 @@ package com.martinlaizg.geofind.data.exception
  *
  * @param message
  */
-class ApiException(message: String?) : Throwable(message)
+open class ApiException(message: String?) : Throwable(message)

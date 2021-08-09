@@ -4,8 +4,8 @@ import android.util.Log
 import com.martinlaizg.geofind.data.api.RetrofitClient
 import com.martinlaizg.geofind.data.api.TourApiInterface
 import com.martinlaizg.geofind.data.api.bean.TourApiBean
-import com.martinlaizg.geofind.data.exception.ApiException
 import com.martinlaizg.geofind.data.exception.ConnectionException
+import com.martinlaizg.geofind.data.exception.UnsuccessfulRequestException
 import java.io.IOException
 
 /**
@@ -18,8 +18,6 @@ class TourService {
 
 	private val api: TourApiInterface =
 		RetrofitClient().instance.create(TourApiInterface::class.java)
-
-	private val _responseUnsuccessful = "Response unsuccessful"
 
 	/**
 	 * TODO
@@ -36,7 +34,7 @@ class TourService {
 			Log.e(_tag, _connectionError, e)
 			throw ConnectionException()
 		}
-		throw ApiException(_responseUnsuccessful)
+		throw UnsuccessfulRequestException()
 	}
 
 	/**
@@ -55,7 +53,7 @@ class TourService {
 			Log.e(_tag, _connectionError, e)
 			throw ConnectionException()
 		}
-		throw ApiException(_responseUnsuccessful)
+		throw UnsuccessfulRequestException()
 	}
 
 	/**
@@ -74,6 +72,23 @@ class TourService {
 			Log.e(_tag, _connectionError, e)
 			throw ConnectionException()
 		}
-		throw ApiException(_responseUnsuccessful)
+		throw UnsuccessfulRequestException()
+	}
+
+	/**
+	 * Remove a tour by id
+	 *
+	 * @param id the tour id
+	 */
+	fun removeTour(id: String) {
+		try {
+			val response = api.deleteTour(id).execute()
+			if (!response.isSuccessful) {
+				throw UnsuccessfulRequestException()
+			}
+		} catch (e: IOException) {
+			Log.e(_tag, _connectionError, e)
+			throw ConnectionException()
+		}
 	}
 }

@@ -12,4 +12,5 @@
 	<string name="create">Crear</string>
 	<string name="title_tour">Tour</string>
 	<string name="add_tour_button">Botón para añadir un tour</string>
+	<string name="delete">Borrar</string>
 </resources>
